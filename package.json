@@ -1,5 +1,5 @@
 {
-    "name": "tophat",
+    "name": "tophat-desktop",
     "version": "0.1.0",
     "private": true,
     "homepage": "https://athenodoros.github.io/TopHat",
@@ -12,6 +12,7 @@
         "@mui/lab": "^5.0.0-alpha.75",
         "@mui/material": "^5.0.1",
         "@reduxjs/toolkit": "^1.6.0",
+        "@tauri-apps/api": "^1.1.0",
         "@testing-library/jest-dom": "^5.11.4",
         "@testing-library/react": "^11.1.0",
         "@testing-library/user-event": "^12.1.10",
@@ -19,7 +20,7 @@
         "@types/jest": "^26.0.15",
         "@types/lodash-es": "^4.17.4",
         "@types/luxon": "^1.27.0",
-        "@types/node": "^12.0.0",
+        "@types/node": "^16.18.0",
         "@types/papaparse": "^5.2.5",
         "@types/react": "^17.0.0",
         "@types/react-beautiful-dnd": "^13.1.0",
@@ -27,6 +28,7 @@
         "@types/react-redux": "^7.1.16",
         "@types/victory": "^33.1.5",
         "chroma-js": "^2.1.2",
+        "crossenv": "^0.0.2-security",
         "dexie": "^3.0.3",
         "dexie-observable": "^3.0.0-beta.11",
         "jszip": "^3.7.1",
@@ -46,13 +48,19 @@
         "victory": "^35.9.0",
         "web-vitals": "^1.0.1"
     },
+    "devDependencies": {
+        "@tauri-apps/cli": "^1.1.0"
+    },
     "scripts": {
         "predeploy": "npm run build",
         "deploy": "gh-pages -d build",
-        "start": "BROWSER=none react-scripts start",
+        "start": "cross-env BROWSER=none react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "eject": "react-scripts eject",
+        "desktop:dev": "tauri dev",
+        "desktop:build": "tauri build",
+        "desktop:debug": "tauri build --debug"
     },
     "eslintConfig": {
         "extends": [
